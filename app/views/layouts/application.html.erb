@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Manage</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<link rel="stylesheet" type="assects/css" href="bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"});
+  });
+  </script> 
+</head>
+<body bgcolor="#A3A375">
+<div id="user_nav">  
+  <% if current_user %>
+    <b>Logged in as:</b>&nbsp<%= current_user.email %>
+    <%= link_to "Logout", logout_path ,:style => "float:right;"  %>
+    <%= link_to "Edit profile", edit_user_path(:current) ,:style => "float:right;" %>
+  <% else %>  
+    <%= link_to "Register", new_user_path %>
+    <%= link_to "Log in", login_path %>
+  <% end %>  
+</div> 
+<% if flash[:notice].present? %>
+<div class="alert alert-success">
+<%= flash[:notice] %>
+</div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medicine_name: MyString
+  total_quantity: 1
+  selling_quantity: 1
+  expairy_date: 2015-10-15
+  prise: 1
+
+two:
+  medicine_name: MyString
+  total_quantity: 1
+  selling_quantity: 1
+  expairy_date: 2015-10-15
+  prise: 1
