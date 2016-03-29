@@ -32,7 +32,9 @@ class UsersController < ApplicationController
   end
 
   def index
+    if current_user.present?
     @users = User.joins(:payments).select("users.*, payments.price, payments.pay_date").where(id: current_user.id)
+    end
   end
 
   def destroy
